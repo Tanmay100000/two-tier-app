@@ -88,17 +88,28 @@ DATABASES = {
 }
 '''
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.getenv('DATABASE_NAME'),         # The name of the database you created
+#         'USER': os.getenv('DATABASE_USER'),              # The MySQL username you created (or 'root' if not using a new user)
+#         'PASSWORD': os.getenv('DATABASE_PASS'),     # The MySQL password you created (or root password if not using a new user)
+#         'HOST': '127.0.0.1',         # The host of your MySQL database (default is 'localhost')
+#         'PORT': '3306',              # The default port for MySQL
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DATABASE_NAME'),         # The name of the database you created
-        'USER': os.getenv('DATABASE_USER'),              # The MySQL username you created (or 'root' if not using a new user)
-        'PASSWORD': os.getenv('DATABASE_PASS'),     # The MySQL password you created (or root password if not using a new user)
-        'HOST': '127.0.0.1',         # The host of your MySQL database (default is 'localhost')
-        'PORT': '3306',              # The default port for MySQL
+        'NAME': os.getenv('DATABASE_NAME', 'devops'),        # Default: 'devops'
+        'USER': os.getenv('DATABASE_USER', 'root'),          # Default: 'root'
+        'PASSWORD': os.getenv('DATABASE_PASS', 'root'),      # Default: 'root'
+        'HOST': os.getenv('DATABASE_HOST', 'mysql-db'),      # Default: 'mysql-db'
+        'PORT': os.getenv('DATABASE_PORT', '3306'),          # Default: '3306'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
