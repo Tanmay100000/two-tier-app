@@ -4,5 +4,7 @@ __pycache__
 *.pyd
 *.db
 *.sqlite3
+*.log
 .env
 .git
+.gitignore
